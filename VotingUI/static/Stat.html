@@ -1,0 +1,95 @@
+<html>
+<meta charset="UTF-8">
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Parties', 'Seats'],
+          ['BJP',     303],
+          ['INC',      52],
+          ['DMK',  23],
+          ['YSR Congress Party', 22],
+          ['AITC',    22],
+          ['SS',   18],
+	  ['JD(U)',    16],
+	  ['BJD',    12],
+	  ['BSP',    10],
+ 	  ['TRS',    9],
+ 	  ['SP',    5],
+ 	  ['NCP',    5],
+ 	  ['LJSP',    5],
+ 	  ['Ind.',    4],
+ 	  ['IUML',    3],
+ 	  ['J&KNC',    3],
+ 	  ['CPI(M)',    3],
+ 	  ['TDP',    3],
+ 	  ['SAD',    2],
+ 	  ['CPI',    2],
+ 	  ['AIMIM',    2],
+ 	  ['Apna Dal',    2],
+ 	  ['Others',    15],
+        ]);
+
+        var options = {
+          title: 'Current Status of Lok Sabha -   लोकसभा की वर्तमान स्थिति :  Sliced Out parts are part of Ruling NDA Government.',
+    animation:{
+      duration: 1000,
+      easing: 'out',
+      startup: true
+    },
+          pieSliceText: 'label',
+	 pieHole: 0.45,
+
+          slices: {  0: {offset: 0.2},
+                    5: {offset: 0.3},
+                    6: {offset: 0.4},
+                    12: {offset: 0.5},
+		    18: {offset: 0.6},
+		    21: {offset: 0.5},
+          },
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+        chart.draw(data, options);
+
+var seats1 = 0,seats2=0,seats3=0,seats4=0,seats5=0,seats6=0,seats7=0,seats8=0,seats9=0;
+// start the animation loop
+var handler = setInterval(function(){
+    // values increment
+	seats1 +=3;
+	if(seats2<52)	seats2 += 1;
+if(seats3<23)	seats3 += 1;
+if(seats4<22)	seats4 += 1;
+if(seats5<22)	seats5 += 1;
+if(seats6<18)	seats6 += 1;
+if(seats7<16)	seats7 += 1;
+if(seats8<12)	seats8 += 1;
+if(seats9<10)	seats9 += 1;
+
+    // apply new values
+    data.setValue(0, 1, seats1);
+    data.setValue(1, 1, seats2);
+data.setValue(2, 1, seats3);
+data.setValue(3, 1, seats4);
+data.setValue(4, 1, seats5);
+data.setValue(5, 1, seats6);
+data.setValue(6, 1, seats7);
+data.setValue(7, 1, seats8);
+data.setValue(8, 1, seats9);
+    // update the pie
+    chart.draw(data, options);
+    // check if we have reached the desired value
+    if (seats1 >302)
+        // stop the loop
+        clearInterval(handler);
+}, 10);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="piechart" style="width: 1520px; height: 710px;"></div>
+  </body>
+</html>

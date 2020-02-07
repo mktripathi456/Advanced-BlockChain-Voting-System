@@ -40,19 +40,30 @@ body, html {height: 100%}
     <div class="w3-container w3-white w3-padding-16">
         <div class="w3-row-padding">
           <div class="w3-margin-bottom">
-            {% for i in dict2%}
-            <font size="14">
-          {{i.0}}:-
-            </font>:
-             <font size="12">
-              {{i.1}}
-            </font>
-            <br>
-            {% endfor %}
-            <br>
             {% for i in dict1%}
-            <h5 class="">{{i}}</h5>
+            {{i}}
+            <br>
             {% endfor %}
+            <br>
+            <br>
+            <br>
+            {% for i in dict2%}
+            {{i}}
+            {% endfor %}
+            <br>
+            <br>
+            <br>
+            {% for i in dict3%}
+            {{i}}
+            {% endfor %}
+            <br>
+            <br>
+            <br>
+            <font size="14">
+            {% for i in dict4%}
+            <h5 class="">{{i}}:-</h5>
+            {% endfor %}
+            </font>
           </div>
         </div>
     </div>
